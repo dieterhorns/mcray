@@ -41,9 +41,11 @@ namespace mcray
 	{
 		if(aParticle.Energy<=fEmin)
 			return false;
-		if(fObservationAngle<M_PI_2 && aParticle.ObservationAngle() > fObservationAngle)
+//		if(fObservationAngle<M_PI_2 && aParticle.ObservationAngle() > fObservationAngle)
+		if(aParticle.ObservationAngle() > fObservationAngle)
 			return false;
-		if(fJetOpenningAngle<M_PI && aParticle.JetOpenningAngle() > fJetOpenningAngle)
+//		if(fJetOpenningAngle<M_PI && aParticle.JetOpenningAngle() > fJetOpenningAngle)
+		if(aParticle.JetOpenningAngle() > fJetOpenningAngle)
 			return false;
 		return true;
 	}

@@ -460,9 +460,11 @@ int CRbeam::run()
 	}
 #endif
 	Randomizer rand(seed);
-	SmartPtr<IFilter> resultFilter = new EnergyBasedFilter(Emin, M_PI);
+//	SmartPtr<IFilter> resultFilter     = new EnergyBasedFilter(Emin, M_PI);
+	SmartPtr<IFilter> resultFilter_jet = new JetOutputFilter(Emin, M_PI, M_PI_2);
 	bool useResultFilterInRuntime = true;
-    FilamentFilter result(fZfilament, resultFilter, useResultFilterInRuntime);
+        //FilamentFilter result(fZfilament, resultFilter, useResultFilterInRuntime);
+        FilamentFilter result(fZfilament, resultFilter_jet, useResultFilterInRuntime);
 	result.SetAutoFlushInterval(10);//save every 10 particle cascades
 	result.EnableFlushOnCtrlC();//make sure results are not lost if program is interrupted by Ctrl-C
 
